@@ -1,10 +1,23 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var Select = require('react-select');
 
-var Hello = React.createClass({
- render: function() {
-   return <div>Hello {this.props.name}!</div>;
- }
-});
 
-ReactDOM.render(<Hello name="World!!!"/>, document.getElementById('app'));
+var options = [
+    { value: 'one', label: 'One' },
+    { value: 'two', label: 'Two' }
+];
+
+function logChange(val) {
+    console.log("Selected: " + val);
+}
+
+ReactDOM.render(
+	<Select
+	    name="form-field-name"
+	    value="one"
+	    options={options}
+	    onChange={logChange}
+	/>, 
+	document.getElementById('app')
+);
